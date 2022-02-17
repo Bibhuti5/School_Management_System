@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="invoice_tree" model="ir.ui.view">
+             <field name="name">school.invoice.tree</field>
+             <field name="model">school.invoice</field>
+             <field name="arch" type="xml">
+               <tree>
+                        <field name='school_name'/>
+                        <field name='fund_id'/>
+                        <field name='date'/>
+                        <field name='address'/>
+                        <field name='mail' widget="Email"/>
+                        <field name='phone' widget="Phone"/>
+                        <field name='logo' widget="image" width="30px" height="30px"/>
+                        
+               </tree>    
+                
+              </field>
+    </record>
+
+    <record id="invoice_form" model="ir.ui.view">
+             <field name="name">school.invoice.form</field>
+             <field name="model">school.invoice</field>
+             <field name="arch" type="xml">
+                 <form>
+                  <header>
+                    <button id='button_preview' string='Preview'   class="oe_highlight btn-primary" name="preview_action" type="object"/>
+                  </header>
+                  <sheet>
+                    <group>
+                        <field name='school_name'/>
+                        <field name='fund_id'/>
+                        <field name='date'/>
+                        <field name='address'/>
+                        <field name='mail' widget="Email"/>
+                        <field name='phone' widget="Phone"/>
+                        <field name='logo' widget="image" width="30px" height="30px" />
+                    </group>
+                    <notebook>
+                        <page string="Invoice Menu" name="Invoice">
+                            <field name="invoice_footer">
+                                    <tree editable="top">
+                                        <field name="name_footer"/>
+                                        <field name="des"/> 
+                                        <field name="quantity"/> 
+                                        <field name="fund"/> 
+                                        <field name="amount"/> 
+                                    </tree>
+                                    <form>
+                                          <group>
+                                                 <field name="name_footer"/>
+                                          </group>
+                                          <group>
+                                                 <field name="des"/>
+                                          </group>
+                                          <group>
+                                                 <field name="quantity"/>
+                                          </group>  
+                                          <group>
+                                                 <field name="fund"/>
+                                           </group>
+                                           <group>
+                                                 <field name="amount"/>
+                                           </group>        
+                                    </form>
+                            </field>
+                         </page>
+                         <page string="Other Information" name="other_info">
+                         </page>
+                    </notebook>
+                    
+                  </sheet>
+                  </form>
+              </field>
+    </record>
+    
+ 
+   
+    <record id="invoice_new" model="ir.actions.act_window">
+        <field name="name"> School Invoice</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.invoice</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <menuitem id="school_invo" name="Invoice" parent="school_root" action="invoice_new" sequence="9"/>
+    
+</odoo>

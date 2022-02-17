@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="funds_tree" model="ir.ui.view">
+             <field name="name">school.funds.tree</field>
+             <field name="model">school.funds</field>
+             <field name="arch" type="xml">
+               <tree>
+                        <field name='school_name'/>
+                        <field name='fund_id'/>
+                         <field name='assign_members'/>
+                         <field name='phot' widget="image" width="30px" height="30px"/>
+                        
+               </tree>    
+                
+              </field>
+    </record>
+
+    
+           
+
+
+    <record id="funds_form" model="ir.ui.view">
+             <field name="name">school.funds.form</field>
+             <field name="model">school.funds</field>
+             <field name="arch" type="xml">
+                 <form>
+                  <sheet>
+                    <group>
+                        <field name='school_name'  options ="{'details':{'fields':['school_name']}}" widget="res_partner_many2one"/>
+                        <field name='fund_id'/>
+                        <field name='assign_members' />
+                    </group>
+                    <notebook>
+                        <page string="Funds Menu" name="funds">
+                            <field name="footer_ids">
+                                    <tree>
+                                        <field name="name_id" widget="tooltip fade show bs-tooltip-right"/>
+                                        <field name="member" /> 
+                                        <field name="fund"/>   
+                                    </tree>
+                                    <form>
+                                            <group>
+                                                <field name="name_id"/>
+                                            </group>
+                                            <group>
+                                                    <field name="member"/>
+                                            </group>
+                                            <group>
+                                                <field name="fund"/>
+                                            </group>
+                                    </form>
+                                 </field>
+                         </page>
+                    </notebook>
+                    
+                  </sheet>
+                  </form>
+              </field>
+     </record>
+
+    
+    <record id="funds_log" model="ir.actions.act_window">
+        <field name="name">Funds Collection</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.funds</field>
+        <field name="view_mode">tree,form</field>
+        
+    </record>
+
+    <menuitem id="funds_goal" name="Funds Collection" parent="school_root"
+              action="funds_log" sequence="10"/>
+   
+</odoo> 

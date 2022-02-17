@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="fund_valid_wizard" model="ir.ui.view" >
+        <field name="name">school.fund.wizards</field>
+        <field name="model">school.fund.wizard</field>
+        <field name="arch" type="xml">
+          <!-- attrs="{'invisible': [('state', '!=', 'draft')]}" -->
+                    <form string="Confirm Funds" >
+                        <group>
+                        <span>Do you like to donote all the Amount</span>
+                        </group>
+                        <footer>
+                            <button class="oe_highlight" type="object" name="yes" string="Yes" />
+                            <button string="No" class="btn-secondary" special="cancel"/>
+                        </footer>
+                    </form>
+        </field>    
+        </record>
+    </data>
+    <record id="funds_validate" model="ir.actions.act_window">
+        <field name="name">Fund Validation </field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.fund.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="fund_valid_wizard"/>
+        <field name="target">new</field>
+    </record>
+    
+</odoo>

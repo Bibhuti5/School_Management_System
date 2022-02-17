@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_footer,access.school.footer,school_event.model_school_footer,,1,1,1,1
+access_school_name,access.school.name,school_event.model_school_name,,1,1,1,1
+access_school_fund,access.school.funds,school_event.model_school_funds,,1,1,1,1
+access_School_events_wiz,access.school.event.wizard,school_event.model_school_event_wizard,,1,1,1,1
+access_school.fund.wizards,access.school.fund.wizard,school_event.model_school_fund_wizard,,1,1,1,1
+access_school.school.invoice,access.school.invoice,school_event.model_school_invoice,,1,1,1,1
+access_schoo_invoice_footer,access.invoice.footer,school_event.model_invoice_footer,,1,1,1,1

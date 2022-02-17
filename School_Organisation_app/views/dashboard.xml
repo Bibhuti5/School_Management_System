@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    
+ 
+   <record id="board.open_board_my_dash_action" model="ir.actions.act_window">
+        <field name="name">My Dashboard</field>
+        <field name="res_model">board.board</field>
+        <field name="xml_id">board.open_board_my_dash_action</field>
+        <field name="view_mode">form</field>
+        <field name="usage">menu</field>
+    </record>
+
+
+    <menuitem
+       name="Dashboard"
+       parent="school_root"
+       action="board.open_board_my_dash_action"
+       sequence="11"
+       id="menu_dashboard"/>
+      
+</odoo>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--creating Tree Views-->
+    <record id="school_tree" model="ir.ui.view">
+             <field name="name">school.name.tree</field>
+             <field name="model">school.name</field>
+             <field name="arch" type="xml">
+               <tree>
+                        <field name='name' widget="many2one_avatar_school" placeholder="avater_school" readonly="1" optional="show"/>
+                        <field name='school_goal_amount' sum="Total Amount Collected" optional="show"/>
+                        <field name='state' widget="badge" optional="show"/>
+                        <field name='assign_members' widget="badge" optional="show"/>
+                        <field name='logo' widget="image" width="30px" height="30px" optional="show"/>
+                        <field name='cover_photo' widget="image" width="30px" height="30px" optional="show"/>
+                        <field name='event' widget="sale_management" optional="show"/>
+                        <field name='event_date' widget="remaining_days" optional="show"/>
+                        <field name="priority" widget="priority"/>
+                        <field name='percentage' widget="progressbar" sum='completed'/>
+                        <field name='total_val' />
+                         <field name="activity_ids" widget="list_activity"/>
+                        <field name='funds_state' widget='boolean_toggle'  optional="show"/>
+                        <field name='note' widget="text" optional="show"/>
+               </tree>                
+              </field>
+    </record>
+     <!--Creating Graph View-->
+    <record id="school_graph" model="ir.ui.view">
+             <field name="name">school.name.graph</field>
+             <field name="model">school.name</field>
+             <field name="arch" type="xml">
+               <graph>
+                        <field name='name'/>
+                        <field name='event'  widget="radio"/>
+                        <field name='school_goal_amount' />
+                        
+               </graph>    
+                
+              </field>
+    </record>  
+
+   <!--creating Calender Views-->
+    <record id="event_calendar" model="ir.ui.view">
+        <field name="name">school.name.calendar</field>
+        <field name="model">school.name</field>
+        <field name="arch" type="xml">
+            <calendar string="Event Calendar" date_start="event_date" color="assign_members" mode="month" quick_add="True">
+                <field name="event_date"/>
+                <field name="assign_members"/>
+            </calendar>
+        </field>
+    </record> 
+    
+
+    <!--creating Kanbn Views-->
+    <record id="school_kanban" model="ir.ui.view">
+        <field name="name">school.name.kanban</field>
+        <field name="model">school.name</field>
+        <field name="arch" type="xml">
+            <kanban >
+                <field name="name" />
+                <field name="logo" widget="image" width="50px" height="50px" />
+                <field name="school_goal_amount"/>
+                <field name="assign_members"/>
+                <field name="event"/>
+                <field name="priority"/>
+                <field name="state" />
+                <field name="percentage" />
+                <templates style="1-2">
+                        <t t-name="kanban-box" >
+                            <div t-attf-class=" oe_kanban_color_ oe_kanban_global_click o_school_name_kanban">
+                                    <div class="oe_kanban_details">
+                                        <ul>
+                                          <li> <field name="logo" widget="image" width="100px" height="100px" /></li> 
+                                        </ul>
+                                     </div> 
+                                 <div class="oe_kanban_details"  >
+                                         <ul>
+                                           <li>Name : <field name="name"/></li>
+                                           <li>Assign Member : <field name="assign_members"/></li>
+                                            <li>Events : <field name="event"/></li>
+                                             <li>Status :<field name="state" widget="state_selection"/></li> 
+                                              <li>Appreciation  :<field name="priority" widget="priority"/></li> 
+                                              <li><field name="activity_ids" widget="kanban_activity"/></li>
+                                         </ul>
+                                 </div>
+                            </div> 
+                                                                          
+                        </t>
+                 </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!--creating Form Views-->
+
+    <record id="school_form" model="ir.ui.view">
+             <field name="name">school.name.form</field>
+             <field name="model">school.name</field>
+             <field name="arch" type="xml">
+                 <form>
+                   <header>
+                     <button id='button_noevent' name='action_noevent' string='No Event'   class="btn-primary" states ="finised" type="object"/>
+                     <button id='button_start' name='action_start' string='Up Coming'  class="btn-primary" states ="update"  type="object"/>
+                     <button id='button_going' name='action_going' string='On Going' class="btn-primary" states ="done" type="object"/>
+                     <button id='button_finished' name='action_finished' string='Finished' class="btn-primary" states ="normal" type="object"/>
+                     <field name="state" widget="statusbar" option="{'clickable':1}"/>
+                   </header>
+                  <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_date" class="oe_stat_button" icon="fa-book">
+                               <field name="event_date" string="Event Date" widget="statinfo"/>
+                        </button>   
+                        <!-- <button id='button_fund' name='funds_validate' string='Goal Amount' icon="fa-random" class="btn-primary" type="object"/>           -->
+                    </div>
+                    <field name='logo' widget="image"  width="120px" height="120px" class="oe_avtar"/>
+                    <group>
+                        <field name='name'/>
+                        
+                        <field name='school_goal_amount' />
+                        <field name='assign_members'/>
+                    </group>
+                    <group>
+                        <field name='percentage' widget="percentpie"/>
+                        <field name='cover_photo' widget="image" width="50px" height="50px"/>
+                        <field name='funds_state' widget='toggel_bottom' />
+                    </group>
+                    <group>
+                        <field name='event' widget="radio"/>
+                        <field name="priority" widget="priority"/>
+                        <field name='event_date' />
+                        <field name='note'/>
+                    </group>
+                  </sheet>
+                  <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread" options="{'post_refresh': 'recipients'}"/>
+                  </div>
+                  </form>
+              </field>
+    </record>
+    <!--Creating New Menu and Actions-->
+    <record id="school_event" model="ir.actions.act_window">
+        <field name="name">School</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.name</field>
+        <field name="view_mode">tree,form,kanban,graph,calendar</field>
+    </record>
+    <!--Edit for tooltip use -->
+    <!-- <record id="my_module.tour.my_module_parent_menu" model="ir.ui.menu">
+        <field name="load_xmlid" eval="True"/>
+    </record> -->
+
+    <!--creating menus-->
+    <menuitem id="school_root" name="School" sequence="1"/>
+    <menuitem id="school_detail" name="Detail" parent="school_root" sequence="2"/>
+    <menuitem id="create_event" name="School Details" parent="school_detail"
+              action="school_event" sequence="10"/>
+
+    <menuitem id="school_event_wiz" name="School Events" parent="school_root"
+              action="create_events" sequence="6"/>
+    
+    <menuitem id="fund_valid" name="Funds Validates" parent="school_detail"  action="funds_validate" sequence="15"/>
+    
+    
+</odoo>

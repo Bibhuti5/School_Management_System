@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_school_details">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                        <div class="oe_structure"/>
+                        <div class="row">
+                            <center>
+                                <div class="col-xs-8" style="margin:auto">
+                                    <table class="table table-condensed" style="border: 3px solid black !important;">
+                                        <tr>
+
+                                            <td width="40%">
+                                                <p style="text-align:center;padding-top:10px;">
+                                                    <img t-if="not o.logo" t-att-src="'/web/static/src/img/placeholder.png'" height="120" border="1" width="120"/>
+                                                    <img t-if="o.logo" t-att-src="'data:logo/png;base64,%s' % to_text(o.logo)" height="120" border="1" width="120"/>
+                                                </p>
+                                                <p>
+                                                    <h2 style="text-align:center;"><span t-field="o.name"/></h2>
+                                                </p>
+                                            </td>
+                                            
+                                            <td width="60%">
+                                                <table>
+                                                    <tr>
+                                                        <td>
+                                                            <p style="text-align:right;"><strong> Name : </strong></p>
+                                                            <p style="text-align:right;"><strong>Fund Collection: </strong></p>
+                                                            <p style="text-align:right;"><strong>Assign Members: </strong></p>
+                                                            <p style="text-align:right;"><strong> Event: </strong></p>
+                                                            <p style="text-align:right;"><strong> state: </strong></p>
+                                                            <p style="text-align:right;"><strong> Event Date: </strong></p>
+                                                            <p style="text-align:right;"><strong> Notes: </strong></p>
+                                                        </td>
+                                                        <td>
+                                                            <p style="text-align:left;padding-left:10px;" t-field="o.name"/>
+                                                            <p style="text-align:left;padding-left:10px;" t-field="o.school_goal_amount"/>
+                                                            <p style="text-align:left;padding-left:10px;" t-field="o.assign_members"/>
+                                                            <p style="text-align:left;padding-left:10px;" t-field="o.event"/>
+                                                            <p style="text-align:left;padding-left:10px;" t-field="o.state"/>
+                                                            <p style="text-align:left;padding-left:10px;" t-field="o.event_date"/>
+                                                            <p style="text-align:left;padding-left:10px;" t-field="o.note"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                            
+                                </div>
+                            </center>
+                            
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

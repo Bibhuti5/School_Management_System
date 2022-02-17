@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="report_invoice_details">
+                <t t-call="web.html_container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="web.external_layout">
+                            <div class="page">
+                                <div class="oe_structure"/>
+                                   <table class="table table-condensed" style="border: 3px solid black !important;" width="100%">
+                                                <tr>
+                                                    <td>
+                                                        <p style="text-align:right;"><strong> Name : </strong></p>
+                                                        <p style="text-align:right;"><strong>Fund Description: </strong></p>
+                                                        <p style="text-align:right;"><strong> Address: </strong></p>
+                                                        <p style="text-align:right;"><strong> Mail : </strong></p>
+                                                        <p style="text-align:right;"><strong> Phone : </strong></p>
+                                                        <p style="text-align:right;"><strong> Invoice Date: </strong></p>
+
+                                                    </td> 
+                                                    <td>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.school_name"/>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.note"/>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.address"/>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.mail"/>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.phone"/>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.date"/>
+                                                    </td>                                                   
+                                                </tr>
+                                   </table>
+                                   <spam>                                                                                                        </spam>
+                                    <table class="table table-condensed" style="border: 3px solid black !important;" width="100%" >
+                                        <tr>
+                                           <td>             
+                                             <p style="text-align:left;padding-left:50px;"><strong> Invoice For School Fund Collection </strong></p>             
+                                           </td>
+                                        </tr>                                         
+                                    </table> 
+
+                                 <spam>                                                                                                        </spam>
+                                    <table class="table table-condensed" style="border: 3px solid black !important;" width="100%" >
+                                      <tr>
+                                           <td>
+                                                        <p ><strong>Name of school : </strong></p>
+                                                        <p ><strong> Fund Collection:</strong></p>
+                                        
+                                           </td> 
+                                           <td>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.school_name"/>
+                                                        <p style="text-align:left;padding-left:10px;" t-field="o.fund_id"/>
+                                        
+                                           </td>
+
+                                     </tr>  
+                                                                                                                
+                                    </table> 
+
+                            </div>
+                        </t>
+                    </t>
+                </t>
+            </template>
+</odoo>

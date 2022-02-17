@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+        id="report_school_details"
+        string="School Card"
+        model="school.name"
+        report_type="qweb-pdf"
+        name="school_event.report_school_details"
+        file="school_event.report_school_details" />
+
+    <report
+        id="invoice_details"
+        string="Invoice Preview"
+        model="school.invoice"
+        report_type="qweb-html"
+        name="school_event.report_invoice_details"
+        file="school_event.report_invoice_details" /> 
+
+</odoo>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <template id="basic_fields" name='Basic Field' inherit_id='web.assets_backend'>
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/school_event/static/src/scss/views.scss"/>
+                <script type="text/javascript" src="/school_event/static/src/js/state_select.js"></script>
+                <script type="text/javascript" src="/school_event/static/src/js/tour.js"></script>
+
+            </xpath>
+        </template>
+</odoo>
