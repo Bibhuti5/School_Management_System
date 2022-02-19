@@ -27,5 +27,5 @@
     'installable': True,
     'application': True,
     'auto_install': False,
-    'image':['static\description\logo.gif'],
+    'image':['\static\description\logo.gif'],
 }
