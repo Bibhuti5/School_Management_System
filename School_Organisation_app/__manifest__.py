@@ -30,9 +30,5 @@
     'installable': True,
     'application': True,
     'auto_install': False,
-<<<<<<< HEAD
     'image':['\static\description\banner.gif'],
-=======
-    'image':['\static\description\Logo.gif'],
->>>>>>> d705a8b13d8cfb187553f75e6dbc72be678f35c6
 }
