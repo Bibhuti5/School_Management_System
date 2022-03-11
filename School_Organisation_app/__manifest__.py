@@ -30,5 +30,5 @@
     'installable': True,
     'application': True,
     'auto_install': False,
-    'image':['\static\description\new.jpg'],
+    'image':['static\description\banner.gif'],
 }
