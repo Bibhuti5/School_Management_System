@@ -3,8 +3,11 @@
     'name' : 'School Event Mangement ',
     'version' : '14.0.1.0.0',
     'summary': 'School Annual Funtion Organisation ',
+    'author': 'Bibhuti Bhusan Sahoo',
     'sequence': 20,
     'description': """ Organisaiton School Fuction """,
+    'company': 'Bibhuti Bhusan Sahoo',
+    'maintainer': 'Bibhuti Bhusan Sahoo',
     'category': 'Accounting',
     'depends' : ['board','project','mail','web','web_tour'],
     'data': [
@@ -27,5 +30,5 @@
     'installable': True,
     'application': True,
     'auto_install': False,
-    'image':['\static\description\Logo.gif'],
+    'image':['\static\description\banner.gif'],
 }
